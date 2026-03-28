@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Testing
+coverage/
+
+# Next.js
+.next/
+out/
+
+# Production
+build/
+
+# Environment Variables (DO NOT REMOVE)
+.env
+.env.local
+.env.production
+.env.development.local
+
+# Database
+drizzle/
+hatua.db
+
+# Misc
+.DS_Store
+*.pem
