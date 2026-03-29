@@ -1,4 +1,4 @@
-hatua-fitness/
+hatua-app/
 ├── .github/                # GitHub Actions for CI/CD
 ├── .netlify/               # Netlify specific local config
 ├── public/                 # Static assets (Avatars, Logos)
