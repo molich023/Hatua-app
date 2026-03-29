@@ -1,6 +1,7 @@
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // This helps bypass small errors during the Netlify build
+  reactStrictMode: true,
   eslint: {
     ignoreDuringBuilds: true,
   },
