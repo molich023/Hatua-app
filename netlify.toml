@@ -3,8 +3,6 @@
   publish = ".next"
 
 # Netlify DB (Neon) integration
-[[plugins]]
-  package = "@netlify/neon"
 
 [dev]
   command = "npm run dev"
