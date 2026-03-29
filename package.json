@@ -1,5 +1,5 @@
 {
-  "name": "hatua-app",
+  "name": "hatua-fitness",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -28,5 +28,6 @@
     "drizzle-kit": "^0.20.0"
   }
 }
+
 
 
