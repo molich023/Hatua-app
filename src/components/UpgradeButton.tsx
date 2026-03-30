@@ -47,6 +47,17 @@ export default function UpgradeButton({ userId }: { userId: string }) {
         className="w-full bg-savanna text-white font-bold py-3 rounded-lg hover:bg-opacity-90 disabled:bg-gray-400"
       >
         {loading ? "Processing..." : "PAY VIA M-PESA"}
+        const handleUpgrade = async () => {
+  // Validation: Ensure it's a Kenyan number starting with 254
+  if (!phone.startsWith('254') || phone.length !== 12) {
+    alert("Please use format 2547XXXXXXXX");
+    return;
+  }
+
+  setLoading(true);
+  // ... rest of your fetch logic
+        }
+        
       </button>
     </div>
   );
