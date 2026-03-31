@@ -16,7 +16,35 @@ export default function Dashboard() {
   // State for the real leaderboard data
   const [runners, setRunners] = useState([]);
   const [loadingRunners, setLoadingRunners] = useState(false);
+// Inside your Dashboard function in src/app/dashboard/page.tsx
 
+const [stats, setStats] = useState({ totalDistance: 0, activityCount: 0 });
+
+useEffect(() => {
+  // Fetch Stats when the page loads
+  fetch('/api/stats')
+    .then(res => res.json())
+    .then(data => setStats(data));
+
+  // Fetch Leaderboard when 'rank' tab is active
+  if (activeTab === 'rank') {
+    setLoadingRunners(true);
+    fetch('/api/leaderboard')
+      .then(res => res.json())
+      .then(data => {
+        setRunners(data);
+        setLoadingRunners(false);
+      });
+  }
+}, [activeTab]);
+
+// ... then in your return statement, update the StatsGrid:
+<StatsGrid 
+  totalPoints={session?.user?.points || 0} 
+  totalDistance={stats.totalDistance} 
+  activityCount={stats.activityCount} 
+/>
+      
   // Protect the page: If not logged in, go to signin
   if (status === 'unauthenticated') {
     redirect('/auth/signin');
