@@ -4,6 +4,26 @@ import { withPageAuthRequired, getSession } from '@auth0/nextjs-auth0';
 export default withPageAuthRequired(async function Dashboard() {
   const session = await getSession();
   const user = session?.user;
+  import { auth } from "@/auth";
+import TrialCountdown from "@/components/TrialCountdown";
+
+export default async function Dashboard() {
+  const session = await auth();
+  
+  return (
+    <div className="max-w-xl mx-auto p-4 space-y-4">
+      {/* This will show only for new Simba Trial users */}
+      <TrialCountdown 
+        plan={session?.user?.plan} 
+        trialExpires={session?.user?.trialExpires} 
+      />
+      
+      <h2 className="text-2xl font-bold">Your HATUA Stats</h2>
+      {/* Rest of your dashboard code... */}
+    </div>
+  );
+}
+  
 
   return (
     <div>
